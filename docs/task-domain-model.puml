@@ -1,0 +1,37 @@
+' Diagrama de clases: modelo base task-api
+@startuml
+class Usuario {
+-id: Long
+-nombre: String
+-email: String
+}
+Usuario "1" -- "*" Tarea: crea
+
+class Tarea{
+- id: Long
+- titulo: String
+- descripcion: String
+- fechaLimite: LocalDate
+- estado: EstadoTarea
+}
+Tarea "1" -- "*" Subtarea: contiene
+
+class Subtarea {
+- id: Long
+- titulo: String
+- estado: EstadoTarea
+}
+
+class Etiqueta {
+- id: Long
+- nombre:String
+}
+Tarea "*" --"*" Etiqueta: clasifica
+
+enum EstadoTarea {
+PENDIENTE
+PAUSADA
+COMPLETADA
+}
+
+@enduml
