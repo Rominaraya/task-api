@@ -2,8 +2,8 @@
 @startuml
 class Usuario {
 -id: Long
--nombre: String
--email: String
+-nombre: String <<NotNull>>
+-email: String <<Unique>>
 }
 Usuario "1" -- "*" Tarea: crea
 
