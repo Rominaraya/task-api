@@ -2,9 +2,6 @@ package com.romina.taskapi.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
-
 import java.util.ArrayList;
 import java.util.List;
 
