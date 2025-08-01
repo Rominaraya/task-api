@@ -3,6 +3,7 @@ package com.romina.taskapi.services;
 
 import com.romina.taskapi.dto.SubtareaRequestDto;
 import com.romina.taskapi.dto.SubtareaResponseDto;
+import com.romina.taskapi.entities.EstadoTarea;
 import com.romina.taskapi.entities.Subtarea;
 import com.romina.taskapi.entities.Tarea;
 import com.romina.taskapi.repository.SubtareaRepository;
@@ -33,6 +34,17 @@ public class SubtareaService {
                 Subtarea guardada = subtareaRepository.save(subtarea);
                return new SubtareaResponseDto(guardada.getId(), guardada.getTitulo(), guardada.getEstado());
     }
+
+    public SubtareaResponseDto actualizarEstado(Long subtareaId, EstadoTarea nuevoEstado) {
+        Subtarea subtarea = subtareaRepository.findById(subtareaId)
+                .orElseThrow(() -> new EntityNotFoundException("Subtarea no encontrada"));
+
+        subtarea.setEstado(nuevoEstado);
+        Subtarea actualizada = subtareaRepository.save(subtarea);
+
+        return new SubtareaResponseDto(actualizada.getId(), actualizada.getTitulo(), actualizada.getEstado());
+    }
+
 
     public List<SubtareaResponseDto> obtenerSubtareasPorTarea(Long tareaId){
         List<Subtarea> subtareas = subtareaRepository.findByTareaId(tareaId);

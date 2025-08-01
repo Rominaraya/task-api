@@ -25,10 +25,13 @@ public class SubtareaController {
         SubtareaResponseDto creada = subtareaService.crearSubtarea(tareaId, dto);
         return  ResponseEntity.ok(creada);
     }
+
+
      @GetMapping
     public ResponseEntity<List<SubtareaResponseDto>> ObtenerSubtareas(@PathVariable Long tareaId){
         List<SubtareaResponseDto> subtareas = subtareaService.obtenerSubtareasPorTarea(tareaId);
         return ResponseEntity.ok(subtareas);
      }
+
 
 }

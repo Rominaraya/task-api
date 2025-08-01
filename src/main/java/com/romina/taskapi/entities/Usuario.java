@@ -35,6 +35,10 @@ public class Usuario {
         this.tareas = tareas;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
