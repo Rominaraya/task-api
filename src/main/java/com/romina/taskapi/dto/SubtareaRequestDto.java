@@ -2,6 +2,7 @@ package com.romina.taskapi.dto;
 
 import com.romina.taskapi.entities.EstadoTarea;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class SubtareaRequestDto {
@@ -10,7 +11,7 @@ public class SubtareaRequestDto {
     @Size(max = 100)
     private String titulo;
 
-    @NotBlank
+    @NotNull(message = "El estado no puede ser nulo")
     private EstadoTarea estado;
 
     public SubtareaRequestDto() {

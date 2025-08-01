@@ -1,7 +1,6 @@
 package com.romina.taskapi.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 
 
 @Entity
@@ -11,13 +10,9 @@ public class Subtarea {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(max = 100)
     @Column(nullable = false)
     private String titulo;
 
-    @NotBlank
-    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EstadoTarea estado;
