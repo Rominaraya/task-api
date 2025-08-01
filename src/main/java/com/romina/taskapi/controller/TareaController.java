@@ -32,4 +32,12 @@ public class TareaController {
         return ResponseEntity.ok(tareas);
     }
 
+    @PutMapping("/{tareaId}/etiquetas/{etiquetaId}")
+    public ResponseEntity<Void> asignarEtiqueta(
+            @PathVariable Long tareaId,
+            @PathVariable Long etiquetaId){
+        tareaService.asignarEtiqueta(tareaId, etiquetaId);
+        return ResponseEntity.noContent().build();
+    }
+
 }
