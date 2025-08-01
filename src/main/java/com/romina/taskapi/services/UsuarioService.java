@@ -19,14 +19,12 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // Método para crear un nuevo usuario
     public UsuarioResponseDto crearUsuario(UsuarioRequestDto dto) {
         Usuario usuario = UsuarioMapperManual.toEntity(dto);
         Usuario guardado = usuarioRepository.save(usuario);
         return UsuarioMapperManual.toDto(guardado);
     }
 
-    // Método para obtener todos los usuarios
     public List<UsuarioResponseDto> obtenerTodos() {
         return usuarioRepository.findAll().stream()
                 .map(UsuarioMapperManual::toDto)

@@ -5,7 +5,8 @@ import com.romina.taskapi.dto.TareaResponseDto;
 import com.romina.taskapi.entities.Tarea;
 
 public class TareaMapperManual {
-    public static Tarea toEntinty(TareaRequestDto dto){
+
+    public static Tarea toEntity(TareaRequestDto dto){
         Tarea tarea = new Tarea();
         tarea.setTitulo(dto.getTitulo().trim());
         tarea.setDescripcion(dto.getDescripcion());
@@ -23,4 +24,5 @@ public class TareaMapperManual {
         dto.setEstado(tarea.getEstado());
         return dto;
     }
+
 }
